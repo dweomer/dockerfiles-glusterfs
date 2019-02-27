@@ -7,6 +7,7 @@ build-client:
 	docker image build \
 		--build-arg UBUNTU=$(UBUNTU) \
 		--build-arg GLUSTERFS=$(GLUSTERFS) \
+		--pull \
 		--tag dweomer/glusterfs-client:$(GLUSTERFS)-$(UBUNTU) \
 		--target glusterfs-client \
 		.
@@ -15,6 +16,7 @@ build-server: build-client
 	docker image build \
 		--build-arg UBUNTU=$(UBUNTU) \
 		--build-arg GLUSTERFS=$(GLUSTERFS) \
+		--pull \
 		--tag dweomer/glusterfs-server:$(GLUSTERFS)-$(UBUNTU) \
 		--target glusterfs-server \
 		.
